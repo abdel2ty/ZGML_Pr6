@@ -25,7 +25,7 @@ st.write("---")
 # ---------------- File upload or default ----------------
 uploaded_file = st.file_uploader("Upload advertising.csv (optional)", type=["csv"])
 
-default_path = "/kaggle/input/advertising/advertising.csv"
+default_path = "advertising.csv"
 df = None
 model = None
 scaler = None
@@ -36,7 +36,7 @@ if uploaded_file is not None:
     st.write(df.head(10))
 elif os.path.exists(default_path):
     df = pd.read_csv(default_path)
-    st.subheader("Default dataset preview (/kaggle/input/advertising/advertising.csv)")
+    st.subheader("Default dataset preview (advertising.csv)")
     st.write(df.head(10))
 else:
     st.warning("No dataset uploaded and default dataset not found. The app will use a temporary dummy model for predictions.")
